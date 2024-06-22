@@ -30,7 +30,7 @@ rule bifrost:
 		1
 	resources:
 		mem_gb=8,
-		time='00:05:00'
+		time='01:00:00'
 	shell:
 		"""
 		module load bifrost/1.3.5
@@ -53,8 +53,11 @@ rule ggcaller:
 		time='01:00:00'
 	shell:
 		"""
-		module load ggcaller/1.3.6
+		set +eu
+		source activate /home/jpl786/.conda/envs/ggc_env
 		ggcaller --graph {input.gfa} --colours {input.bfg} --out {params.outdir} --threads {threads}
+		source deactivate /home/jpl786/.conda/envs/ggc_env
+		set -eu
 		"""
 
 rule translation:
