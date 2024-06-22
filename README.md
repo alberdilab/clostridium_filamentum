@@ -1,6 +1,8 @@
 # clostridium_filamentum
 
-
+```{sh}
+git clone https://github.com/alberdilab/clostridium_filamentum.git
+```
 
 ```{sh}
 screen -S clostridium_filamentum
