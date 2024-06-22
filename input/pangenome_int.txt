@@ -1,0 +1,3 @@
+genomes/c_filamentum_b1.fasta
+genomes/c_filamentum_b2.fasta
+genomes/c_filamentum_b3.fasta
