@@ -1,0 +1,337 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{float}
+\usepackage{tabularray}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{siunitx}
+\NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
+\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Clostridium filamentum annotation analysis},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Clostridium filamentum annotation analysis}
+\author{}
+\date{\vspace{-2.5em}2024-06-23}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tinytable)}
+\FunctionTok{library}\NormalTok{(distillR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c\_filamentum\_b1 }\OtherTok{\textless{}{-}} \FunctionTok{read\_tsv}\NormalTok{(}\StringTok{"annotations/c\_filamentum\_b1.tsv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## New names:
+## Rows: 2579 Columns: 20
+## -- Column specification
+## -------------------------------------------------------- Delimiter: "\t" chr
+## (11): ...1, fasta, scaffold, rank, kegg_id, kegg_hit, peptidase_id, pept... dbl
+## (8): gene_position, start_position, end_position, strandedness, peptida... lgl
+## (1): peptidase_RBH
+## i Use `spec()` to retrieve the full column specification for this data. i
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## * `` -> `...1`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c\_filamentum\_b2 }\OtherTok{\textless{}{-}} \FunctionTok{read\_tsv}\NormalTok{(}\StringTok{"annotations/c\_filamentum\_b2.tsv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## New names:
+## Rows: 2579 Columns: 20
+## -- Column specification
+## -------------------------------------------------------- Delimiter: "\t" chr
+## (11): ...1, fasta, scaffold, rank, kegg_id, kegg_hit, peptidase_id, pept... dbl
+## (8): gene_position, start_position, end_position, strandedness, peptida... lgl
+## (1): peptidase_RBH
+## i Use `spec()` to retrieve the full column specification for this data. i
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## * `` -> `...1`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c\_filamentum\_b3 }\OtherTok{\textless{}{-}} \FunctionTok{read\_tsv}\NormalTok{(}\StringTok{"annotations/c\_filamentum\_b3.tsv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## New names:
+## Rows: 2580 Columns: 20
+## -- Column specification
+## -------------------------------------------------------- Delimiter: "\t" chr
+## (11): ...1, fasta, scaffold, rank, kegg_id, kegg_hit, peptidase_id, pept... dbl
+## (8): gene_position, start_position, end_position, strandedness, peptida... lgl
+## (1): peptidase_RBH
+## i Use `spec()` to retrieve the full column specification for this data. i
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## * `` -> `...1`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c\_saudiense }\OtherTok{\textless{}{-}} \FunctionTok{read\_tsv}\NormalTok{(}\StringTok{"annotations/c\_saudiense.tsv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## New names:
+## Rows: 3526 Columns: 20
+## -- Column specification
+## -------------------------------------------------------- Delimiter: "\t" chr
+## (11): ...1, fasta, scaffold, rank, kegg_id, kegg_hit, peptidase_id, pept... dbl
+## (8): gene_position, start_position, end_position, strandedness, peptida... lgl
+## (1): peptidase_RBH
+## i Use `spec()` to retrieve the full column specification for this data. i
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## * `` -> `...1`
+\end{verbatim}
+
+\hypertarget{differences-between-filamentum-strains}{%
+\subsection{Differences between filamentum
+strains}\label{differences-between-filamentum-strains}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c\_filamentum\_annotations }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(c\_filamentum\_b1,c\_filamentum\_b2,c\_filamentum\_b3) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{annot\_string=}\FunctionTok{str\_c}\NormalTok{(kegg\_id,}\StringTok{" {-} "}\NormalTok{,pfam\_hits)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(fasta,annot\_string) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(annot\_string)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ fasta,}\AttributeTok{values\_from =}\NormalTok{ annot\_string)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Values from `annot_string` are not uniquely identified; output will contain
+## list-cols.
+## * Use `values_fn = list` to suppress this warning.
+## * Use `values_fn = {summary_fun}` to summarise duplicates.
+## * Use the following dplyr code to identify duplicates.
+##   {data} |>
+##   dplyr::summarise(n = dplyr::n(), .by = c(fasta)) |>
+##   dplyr::filter(n > 1L)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{check\_presence }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(value, column) \{}
+  \ControlFlowTok{if}\NormalTok{ (value }\SpecialCharTok{\%in\%}\NormalTok{ column) \{}
+    \FunctionTok{return}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+    \FunctionTok{return}\NormalTok{(}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\NormalTok{c\_filamentum\_annotations }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{unlist}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{unique}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{tibble}\NormalTok{(}\AttributeTok{value=}\NormalTok{.) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{in\_c\_filamentum\_b1 =} \FunctionTok{map\_lgl}\NormalTok{(value, }\SpecialCharTok{\textasciitilde{}} \FunctionTok{check\_presence}\NormalTok{(.x, c\_filamentum\_annotations}\SpecialCharTok{$}\NormalTok{c\_filamentum\_b1[[}\DecValTok{1}\NormalTok{]])),}
+    \AttributeTok{in\_c\_filamentum\_b2 =} \FunctionTok{map\_lgl}\NormalTok{(value, }\SpecialCharTok{\textasciitilde{}} \FunctionTok{check\_presence}\NormalTok{(.x, c\_filamentum\_annotations}\SpecialCharTok{$}\NormalTok{c\_filamentum\_b2[[}\DecValTok{1}\NormalTok{]])),}
+    \AttributeTok{in\_c\_filamentum\_b3 =} \FunctionTok{map\_lgl}\NormalTok{(value, }\SpecialCharTok{\textasciitilde{}} \FunctionTok{check\_presence}\NormalTok{(.x, c\_filamentum\_annotations}\SpecialCharTok{$}\NormalTok{c\_filamentum\_b3[[}\DecValTok{1}\NormalTok{]]))}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(in\_c\_filamentum\_b1 }\SpecialCharTok{\&}\NormalTok{ in\_c\_filamentum\_b2 }\SpecialCharTok{\&}\NormalTok{ in\_c\_filamentum\_b3)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tt}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tblr}[         %% tabularray outer open
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]},
+}                     %% tabularray inner close
+\toprule
+value & in_c_filamentum_b1 & in_c_filamentum_b2 & in_c_filamentum_b3 \\ \midrule %% TinyTableHeader
+K06283 - Stage III sporulation protein D [PF12116.10]                                                                                                                                                                                                                    &  TRUE & FALSE &  TRUE \\
+K04720 - Aminotransferase class I and II [PF00155.23]                                                                                                                                                                                                                    &  TRUE & FALSE &  TRUE \\
+K00196 - 4Fe-4S dicluster domain [PF13247.8]; 4Fe-4S dicluster domain [PF14697.8]; 4Fe-4S dicluster domain [PF13237.8]; 4Fe-4S dicluster domain [PF12838.9]; 4Fe-4S dicluster domain [PF13187.8]; 4Fe-4S binding domain [PF12797.9]; 4Fe-4S dicluster domain [PF13183.8] &  TRUE & FALSE &  TRUE \\
+K02897 - Ribosomal protein TL5, C-terminal domain [PF14693.8]; Ribosomal L25p family [PF01386.21]                                                                                                                                                                        &  TRUE & FALSE &  TRUE \\
+K01567 - Polysaccharide deacetylase [PF01522.23]                                                                                                                                                                                                                         &  TRUE &  TRUE & FALSE \\
+K01752 - Serine dehydratase beta chain [PF03315.17]; ACT domain [PF01842.27]; ACT domain [PF13291.8]; ACT domain pair [PF19571.1]                                                                                                                                        &  TRUE & FALSE &  TRUE \\
+K01752 - Serine dehydratase beta chain [PF03315.17]                                                                                                                                                                                                                      & FALSE &  TRUE & FALSE \\
+\bottomrule
+\end{tblr}
+\end{table}
+
+\hypertarget{metabolic-differences}{%
+\subsection{Metabolic differences}\label{metabolic-differences}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{bind\_rows}\NormalTok{(c\_filamentum\_b1,c\_filamentum\_b2,c\_filamentum\_b3,c\_saudiense) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{distill}\NormalTok{(.,GIFT\_db,}\AttributeTok{genomecol=}\DecValTok{2}\NormalTok{,}\AttributeTok{annotcol=}\FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{19}\NormalTok{), }\AttributeTok{verbosity=}\NormalTok{F) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{to.elements}\NormalTok{(., GIFT\_db) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{as.data.frame}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rownames\_to\_column}\NormalTok{(}\AttributeTok{var=}\StringTok{"genome"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\SpecialCharTok{!}\NormalTok{genome,}\AttributeTok{names\_to=}\StringTok{"elementid"}\NormalTok{, }\AttributeTok{values\_to=}\StringTok{"value"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{functionid =} \FunctionTok{substr}\NormalTok{(elementid, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{elementid =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      elementid }\SpecialCharTok{\%in\%}\NormalTok{ GIFT\_db}\SpecialCharTok{$}\NormalTok{Code\_element }\SpecialCharTok{\textasciitilde{}}\NormalTok{ GIFT\_db}\SpecialCharTok{$}\NormalTok{Element[}\FunctionTok{match}\NormalTok{(elementid, GIFT\_db}\SpecialCharTok{$}\NormalTok{Code\_element)],}
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ elementid}
+\NormalTok{    )) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{functionid =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{      functionid }\SpecialCharTok{\%in\%}\NormalTok{ GIFT\_db}\SpecialCharTok{$}\NormalTok{Code\_function }\SpecialCharTok{\textasciitilde{}}\NormalTok{ GIFT\_db}\SpecialCharTok{$}\NormalTok{Function[}\FunctionTok{match}\NormalTok{(functionid, GIFT\_db}\SpecialCharTok{$}\NormalTok{Code\_function)],}
+      \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}}\NormalTok{ functionid}
+\NormalTok{    )) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{elementid=}\FunctionTok{factor}\NormalTok{(elementid,}\AttributeTok{levels=}\FunctionTok{unique}\NormalTok{(GIFT\_db}\SpecialCharTok{$}\NormalTok{Element))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{functionid=}\FunctionTok{factor}\NormalTok{(functionid,}\AttributeTok{levels=}\FunctionTok{unique}\NormalTok{(GIFT\_db}\SpecialCharTok{$}\NormalTok{Function))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{genome,}\AttributeTok{y=}\NormalTok{elementid,}\AttributeTok{fill=}\NormalTok{value))}\SpecialCharTok{+}
+      \FunctionTok{geom\_tile}\NormalTok{(}\AttributeTok{colour=}\StringTok{"white"}\NormalTok{, }\AttributeTok{linewidth=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+      \FunctionTok{scale\_fill\_gradientn}\NormalTok{(}\AttributeTok{colours=}\FunctionTok{rev}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"\#d53e4f"}\NormalTok{, }\StringTok{"\#f46d43"}\NormalTok{, }\StringTok{"\#fdae61"}\NormalTok{, }\StringTok{"\#fee08b"}\NormalTok{, }\StringTok{"\#e6f598"}\NormalTok{, }\StringTok{"\#abdda4"}\NormalTok{, }\StringTok{"\#ddf1da"}\NormalTok{)))}\SpecialCharTok{+}
+      \FunctionTok{facet\_grid}\NormalTok{(functionid }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{scales=}\StringTok{"free"}\NormalTok{,}\AttributeTok{space=}\StringTok{"free"}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{vjust =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{),}\AttributeTok{strip.text.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{0}\NormalTok{)) }\SpecialCharTok{+} 
+      \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"Traits"}\NormalTok{,}\AttributeTok{x=}\StringTok{"Samples"}\NormalTok{,}\AttributeTok{fill=}\StringTok{"GIFT"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Identifiers in the annotation table: 1923 
+## Identifiers in the database: 1547 
+## Identifiers in both: 273 
+## Percentage of annotation table identifiers used for distillation: 14.2%
+## Percentage of database identifiers used for distillation: 17.65%
+\end{verbatim}
+
+\includegraphics{annortation_analysis_files/figure-latex/metabolic_differences-1.pdf}
+
+\end{document}

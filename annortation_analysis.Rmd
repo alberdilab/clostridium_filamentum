@@ -1,0 +1,84 @@
+---
+title: "Clostridium filamentum annotation analysis"
+output:
+  html_document: default
+  pdf_document: default
+date: "2024-06-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries}
+library(tidyverse)
+library(tinytable)
+library(distillR)
+```
+
+```{r load_annotations}
+c_filamentum_b1 <- read_tsv("annotations/c_filamentum_b1.tsv")
+c_filamentum_b2 <- read_tsv("annotations/c_filamentum_b2.tsv")
+c_filamentum_b3 <- read_tsv("annotations/c_filamentum_b3.tsv")
+c_saudiense <- read_tsv("annotations/c_saudiense.tsv")
+```
+
+## Differences between filamentum strains
+
+```{r missmatches}
+c_filamentum_annotations <- bind_rows(c_filamentum_b1,c_filamentum_b2,c_filamentum_b3) %>% 
+  mutate(annot_string=str_c(kegg_id," - ",pfam_hits)) %>% 
+  select(fasta,annot_string) %>%
+  filter(!is.na(annot_string)) %>%
+  pivot_wider(names_from = fasta,values_from = annot_string)
+
+check_presence <- function(value, column) {
+  if (value %in% column) {
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
+
+c_filamentum_annotations %>% 
+  unlist() %>% 
+  unique() %>% 
+  tibble(value=.) %>%
+  mutate(
+    in_c_filamentum_b1 = map_lgl(value, ~ check_presence(.x, c_filamentum_annotations$c_filamentum_b1[[1]])),
+    in_c_filamentum_b2 = map_lgl(value, ~ check_presence(.x, c_filamentum_annotations$c_filamentum_b2[[1]])),
+    in_c_filamentum_b3 = map_lgl(value, ~ check_presence(.x, c_filamentum_annotations$c_filamentum_b3[[1]]))
+  ) %>%
+  filter(!(in_c_filamentum_b1 & in_c_filamentum_b2 & in_c_filamentum_b3)) %>%
+  tt()
+  
+```
+
+## Metabolic differences
+
+```{r metabolic_differences, message=FALSE, warning=FALSE, fig.height=20, fig.width=10, fig.fullwidth=TRUE}
+bind_rows(c_filamentum_b1,c_filamentum_b2,c_filamentum_b3,c_saudiense) %>% 
+  distill(.,GIFT_db,genomecol=2,annotcol=c(9,10,19), verbosity=F) %>% 
+  to.elements(., GIFT_db) %>%
+  as.data.frame() %>%
+  rownames_to_column(var="genome") %>% 
+  pivot_longer(!genome,names_to="elementid", values_to="value") %>%
+  mutate(functionid = substr(elementid, 1, 3)) %>%
+  mutate(elementid = case_when(
+      elementid %in% GIFT_db$Code_element ~ GIFT_db$Element[match(elementid, GIFT_db$Code_element)],
+      TRUE ~ elementid
+    )) %>%
+    mutate(functionid = case_when(
+      functionid %in% GIFT_db$Code_function ~ GIFT_db$Function[match(functionid, GIFT_db$Code_function)],
+      TRUE ~ functionid
+    )) %>%
+  mutate(elementid=factor(elementid,levels=unique(GIFT_db$Element))) %>%
+  mutate(functionid=factor(functionid,levels=unique(GIFT_db$Function))) %>%
+  ggplot(aes(x=genome,y=elementid,fill=value))+
+      geom_tile(colour="white", linewidth=0.2)+
+      scale_fill_gradientn(colours=rev(c("#d53e4f", "#f46d43", "#fdae61", "#fee08b", "#e6f598", "#abdda4", "#ddf1da")))+
+      facet_grid(functionid ~ ., scales="free",space="free") +
+      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),strip.text.y = element_text(angle = 0)) + 
+      labs(y="Traits",x="Samples",fill="GIFT")
+  
+```
