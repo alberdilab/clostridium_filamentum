@@ -13,6 +13,10 @@ sbatch run_dram.sh c_filamentum_b3
 sbatch run_dram.sh c_saudiense
 ```
 
+### Differences
+
+- K06283/PF12116.10: Stage III sporulation protein D | **Missing in b2**
+
 ## Pangenome generation
 
 ### Dependencies
