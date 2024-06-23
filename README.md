@@ -29,6 +29,14 @@ sbatch run_dram.sh c_saudiense
 
 ## Pangenome generation
 
+### Internal pangenome (only filamentum)
+
+![odgi_int](figures/odgi_int.png)
+
+### External pangenome (filamentum b1 + saudiense)
+
+![odgi_ext](figures/odgi_ext.png)
+
 ### Dependencies
 
 - slurm
