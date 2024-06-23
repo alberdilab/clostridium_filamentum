@@ -15,7 +15,13 @@ sbatch run_dram.sh c_saudiense
 
 ### Differences
 
-- K06283/PF12116.10: Stage III sporulation protein D | **Missing in b2**
+| Gene | C_filamentum_b1 | C_filamentum_b2 | C_filamentum_b3 |
+| --- | --- | --- | --- |
+| K06283 - Stage III sporulation protein D [PF12116.10] | TRUE | FALSE | TRUE |
+| K04720 - Aminotransferase class I and II [PF00155.23] | TRUE | FALSE | TRUE |
+| K00196 - 4Fe-4S dicluster domain [PF13247.8]; 4Fe-4S dicluster domain [PF14697.8]; 4Fe-4S dicluster domain [PF13237.8]; 4Fe-4S dicluster domain [PF12838.9]; 4Fe-4S dicluster domain [PF13187.8]; 4Fe-4S binding domain [PF12797.9]; 4Fe-4S dicluster domain [PF13183.8] | TRUE | FALSE | TRUE |
+| K02897 - Ribosomal protein TL5, C-terminal domain [PF14693.8]; Ribosomal L25p family [PF01386.21] | TRUE | FALSE | TRUE |
+| K01567 - Polysaccharide deacetylase [PF01522.23] | TRUE | TRUE | FALSE |
 
 ## Pangenome generation
 
