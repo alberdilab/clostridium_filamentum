@@ -13,11 +13,22 @@ sbatch run_dram.sh c_filamentum_b3
 sbatch run_dram.sh c_saudiense
 ```
 
+| Genome | Predicted genes | Annotated genes |
+| --- | --- | --- |
+| Clostridium filamentum b1 | 2581 | 2112 |
+| Clostridium filamentum b2 | 2579 | 2110 |
+| Clostridium filamentum b3 | 2580 | 2111 |
+| Clostridium saudiense | 3526 | 2818 |
+
 ### Differences between filamentum and saudiense
+
+Some differences are observed in the biosynthesis of some amino acids and SCFAs. Significant differences are observed in polysaccharide anb sugar degradation capacity. Some differences are observed in amino acid and alcohol degradation.
 
 ![gifts](figures/gifts.png)
 
 ### Differences among filamentum strains
+
+The following genes are not present in the three strains. Further analysis is needed to ascertain whether it is a gene prediction artifact or a real signal.
 
 | Gene | C_filamentum_b1 | C_filamentum_b2 | C_filamentum_b3 |
 | --- | --- | --- | --- |
@@ -31,9 +42,13 @@ sbatch run_dram.sh c_saudiense
 
 ### Internal pangenome (only filamentum)
 
+All three C. filamentum strains are structurally identical, only differing in small variants. 
+
 ![odgi_int](figures/odgi_int.png)
 
 ### External pangenome (filamentum b1 + saudiense)
+
+C. filamentum and C. saudiense are structurally very different.
 
 ![odgi_ext](figures/odgi_ext.png)
 
