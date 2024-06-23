@@ -1,8 +1,21 @@
-# Clostridium filamentum pangenomes
+# Clostridium filamentum annotations and pangenomes
 
 This repository contains the code to generate pangenomes of Clostridium filamentum and functionally annotate genes using multiple databases. Pangenome generation, gene calling and annotation are piped in snakemake (see snakefile).
 
-## Dependencies
+## Genome annotation
+
+Genome annotation is carried out individually for each genome using DRAM. The code below sends 4 jobs to the SLURM queue to run the script run_dram.sh for each of the four genomes.
+
+```{sh}
+sbatch run_dram.sh c_filamentum_b1
+sbatch run_dram.sh c_filamentum_b2
+sbatch run_dram.sh c_filamentum_b3
+sbatch run_dram.sh c_saudiense
+```
+
+## Pangenome generation
+
+### Dependencies
 
 - slurm
 - miniconda
@@ -12,7 +25,7 @@ This repository contains the code to generate pangenomes of Clostridium filament
 - bbmap
 - dram
 
-## Pipeline
+### Pipeline
 
 Clone the repository.
 
