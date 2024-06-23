@@ -2,7 +2,7 @@
 
 $1
 
-#SBATCH --job-name=${1}
+#SBATCH --job-name=dram_${1}
 #SBATCH --nodes=1
 #SBATCH --ntasks=24
 #SBATCH --mem=64gb
