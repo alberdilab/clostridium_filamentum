@@ -40,6 +40,8 @@ The following genes are not present in the three strains. Further analysis is ne
 
 ## Pangenome generation
 
+Two pangenome-generating pipelines were run: bifrost+ggcaller and pggb.
+
 ### Internal pangenome (only filamentum)
 
 All three C. filamentum strains are structurally identical, only differing in small variants. 
@@ -57,6 +59,7 @@ C. filamentum and C. saudiense are structurally very different.
 - slurm
 - miniconda
 - dnakemake
+- pggb
 - bifrost
 - ggcaller
 - bbmap
