@@ -13,7 +13,7 @@ sbatch run_dram.sh c_filamentum_b3
 sbatch run_dram.sh c_saudiense
 ```
 
-### Differences
+### Differences among filamentum strains
 
 | Gene | C_filamentum_b1 | C_filamentum_b2 | C_filamentum_b3 |
 | --- | --- | --- | --- |
